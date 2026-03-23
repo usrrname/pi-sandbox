@@ -1,0 +1,25 @@
+services:
+  sandbox:
+    build:
+      context: docker
+      dockerfile: base.dockerfile
+    image: pi-sandbox/base
+    container_name: pi-sandbox
+    cpus: 2
+    mem_limit: 4g
+    pids_limit: 100
+    network_mode: none
+    read_only: true
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - memory:/root/.pi
+      - projects:/workspace
+      - type: tmpfs
+        target: /tmp
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+
+volumes:
+  memory:
+  projects:

@@ -14,10 +14,11 @@ services:
       - PI_HOME=/workspace/.pi
       - HOME=/workspace
       - MINIMAX_API_KEY=${MINIMAX_API_KEY:-}
+      - GH_TOKEN=${GH_TOKEN:-}
     volumes:
       - sessions:/workspace/.pi/agent/sessions
       - memory:/workspace/.pi/memory
-      - projects:/workspace/projects
+      - /Users/jenc/code/pi-sandbox/projects:/workspace/projects
       - type: tmpfs
         target: /tmp
         tmpfs:
@@ -30,4 +31,3 @@ services:
 volumes:
   sessions:
   memory:
-  projects:

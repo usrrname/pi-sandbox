@@ -32,10 +32,10 @@ This project uses [varlock](https://varlock.dev) to inject API keys securely.
 Set up `.env.schema`:
 
 ```json
-MINIMAX_API_KEY="exec('op read \"op://Personal/MiniMax/api-key\"')"
+
 ```
 
-Or use any secrets provider: AWS SSM, GCP, HashiCorp Vault, Bitwarden, etc.
+Or use any other secret key accepted  
 
 **Gotcha:** `auth.json` is created by the agent on first run using `MINIMAX_API_KEY`.
 If `MINIMAX_API_KEY` is empty/missing, the agent won't authenticate. Ensure varlock

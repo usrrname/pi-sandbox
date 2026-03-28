@@ -12,7 +12,7 @@ help:
 	@echo "  make rebuild   - Down + build + up + attach"
 
 up:
-	docker compose up -d
+	eval "$(varlock load --format=env)" && docker compose up -d
 
 down:
 	docker compose down
@@ -27,7 +27,7 @@ clean:
 	docker compose down --rmi local
 
 build:
-	varlock run -- docker compose build --no-cache
+	eval "$(varlock load --format=env)" && docker compose build --no-cache
 
 rebuild:
-	varlock run -- docker compose down && varlock run -- docker compose build --no-cache && varlock run -- docker compose up -d && docker compose exec sandbox bash
+	eval "$(varlock load --format=env)" && docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash

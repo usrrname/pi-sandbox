@@ -24,3 +24,4 @@ Thumbs.db
 .pi-data
 
 .env*
+_hidden/

@@ -44,3 +44,13 @@ export LANG=C
 # Node.js settings (for pi-coding-agent and similar)
 export NPM_CONFIG_PREFIX=/root/.npm-global
 export PATH=$PATH:/root/.npm-global/bin
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# System Checks
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Warn if /tmp is above 80% capacity (500MB limit)
+if [ -d /tmp ] && [ $(df /tmp | awk 'NR==2 {print $5}' | tr -d '%') -gt 80 ]; then
+  echo "⚠️  Warning: /tmp is above 80% capacity"
+  df -h /tmp
+fi

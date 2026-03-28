@@ -11,7 +11,7 @@ out/
 .env
 .env.local
 .env.*.local
-
+_hidden/
 # IDE
 .idea/
 .vscode/

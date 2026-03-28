@@ -27,7 +27,7 @@ clean:
 	docker compose down --rmi local
 
 build:
-	docker compose build --no-cache
+	varlock run -- docker compose build --no-cache
 
 rebuild:
-	docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash
+	varlock run -- docker compose down && varlock run -- docker compose build --no-cache && varlock run -- docker compose up -d && docker compose exec sandbox bash

@@ -1,5 +1,6 @@
 {
 	"dependencies": {
-		"@varlock/1password-plugin": "^0.3.0"
+		"@varlock/1password-plugin": "^0.3.0",
+		"varlock": "^0.6.4"
 	}
 }

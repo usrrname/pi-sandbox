@@ -40,10 +40,26 @@ make build     # Rebuild image
 ## Structure
 
 ```
-/workspace          # Your projects (~/pi-sandbox/projects)
-/workspace/.pi     # Agent data (sessions, memory, auth)
-/tmp               # Ephemeral temp files
+/workspace                          # From image
+/workspace/.pi/agent/prompts/      # Prompt templates (from image)
+/workspace/.pi/agent/sessions/      # Session history (persists)
+.workspace/.pi/memory/             # Agent memory (persists)
+/workspace/projects/                # Your code (persists)
+/tmp                                # Ephemeral temp files (RAM, 500MB limit)
 ```
+
+### Storage Strategy
+
+| Path | Source | Persists |
+|------|--------|----------|
+| `/workspace` | Image | No |
+| `/workspace/.pi/agent/prompts/` | Image | No (rebuild to update) |
+| `/workspace/.pi/agent/sessions/` | Volume | ✅ |
+| `/workspace/.pi/memory/` | Volume | ✅ |
+| `/workspace/projects/` | Volume | ✅ |
+| `/tmp` | tmpfs (RAM) | No |
+
+This ensures prompts stay in sync with the image while session history, memory, and projects persist across runs.
 
 ## Prompt Templates
 

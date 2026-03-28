@@ -32,8 +32,16 @@ RUN apt-get update && apt-get install -y \
     unzip \
     # TLS certificates for HTTPS
     ca-certificates \
+    # Tailscale
+    ca-certificates gnupg lsb-release \
     # Clean up apt cache to reduce image size
     && rm -rf /var/lib/apt/lists/*
+
+# Install Tailscale binary directly
+RUN curl -fsSL https://pkgs.tailscale.com/stable/tailscale_latest_arm64.tgz | tar -xz -C /tmp && \
+    cp /tmp/tailscale_*/tailscaled /usr/local/bin/ && \
+    cp /tmp/tailscale_*/tailscale /usr/local/bin/ && \
+    rm -rf /tmp/tailscale_*
 
 # ---------------------------------------------------------------------------
 # Node.js

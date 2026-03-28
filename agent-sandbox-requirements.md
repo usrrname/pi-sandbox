@@ -21,6 +21,7 @@ Isolated development environment for running coding agents (e.g., pi) including 
 - Agent cannot access `~/.ssh`, `~/.aws`, `~/.config/gcloud`, or other credential directories
 - Agent cannot install system packages without explicit permission
 - Temporary files stored in tmpfs, not host filesystem
+- Agent should not have access to host filesystem.
 
 ---
 
@@ -129,6 +130,7 @@ docker create ... # recreate from base image
 ## 7. Acceptance Criteria
 
 ### Single Agent
+
 - [ ] Agent cannot read host credentials or SSH keys
 - [ ] Agent cannot access network by default (except explicit allowance)
 - [ ] All agent memory survives container restart
@@ -138,6 +140,7 @@ docker create ... # recreate from base image
 - [ ] Agent runs as non-root with appropriate file permissions
 
 ### Multi-Agent
+
 - [ ] Subagents spawn from same base image
 - [ ] Subagents share memory volume for coordination
 - [ ] Subagent failures don't crash primary agent

@@ -1,0 +1,46 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Agent Shell Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Safety: exit on error, undefined vars, pipe failures
+set -euo pipefail
+
+# Prompt: clean, shows current directory
+PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
+
+# Aliases
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+
+# Editor
+export EDITOR=vim
+export VISUAL=vim
+
+# History
+HISTCONTROL=ignoredups:erasedups
+HISTSIZE=10000
+shopt -s histappend
+
+# Color support
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# No interactive prompts
+export DEBIAN_FRONTEND=noninteractive
+
+# Locale for consistent output
+export LC_ALL=C
+export LANG=C
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Agent Tools
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Node.js settings (for pi-coding-agent and similar)
+export NPM_CONFIG_PREFIX=/root/.npm-global
+export PATH=$PATH:/root/.npm-global/bin

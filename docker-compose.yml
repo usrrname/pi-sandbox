@@ -2,21 +2,25 @@ services:
   sandbox:
     build:
       context: docker
-      dockerfile: base.dockerfile
+      dockerfile: Dockerfile
     image: pi-sandbox/base
     container_name: pi-sandbox
     cpus: 2
     mem_limit: 4g
     pids_limit: 100
-    network_mode: none
+    network_mode: bridge
     read_only: true
-    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      - PI_HOME=/workspace/.pi
+      - HOME=/workspace
+      - MINIMAX_API_KEY=${MINIMAX_API_KEY:-}
     volumes:
-      - memory:/root/.pi
+      - memory:/workspace/.pi/memory
       - projects:/workspace
       - type: tmpfs
         target: /tmp
     working_dir: /workspace
+    user: "1000:1000"
     stdin_open: true
     tty: true
 

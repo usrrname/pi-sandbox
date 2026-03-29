@@ -81,9 +81,33 @@ API keys are injected via [varlock](https://varlock.dev) — never stored in pla
 
 Edit `.env.schema` to configure your secrets provider.
 
-## Adding Tools
+## Git & SSH
+
+The agent needs its own SSH key for GitHub operations. Create one on your host:
+
+```bash
+mkdir -p ~/.ssh/pi-agent
+ssh-keygen -t ed25519 -f ~/.ssh/pi-agent/id_ed25519 -C "pi-agent"
+# Add the public key to GitHub: cat ~/.ssh/pi-agent/id_ed25519.pub
+```
+
+Create `~/.gitconfig` to configure git with the agent's SSH key:
+
+```ini
+[core]
+  sshCommand = ssh -i ~/.ssh/pi-agent/id_ed25519 -o StrictHostKeyChecking=no
+
+[user]
+  email = your@email.com
+  name = Your Name
+```
+
+Both are mounted into the container automatically via docker-compose.yml.
+
+## Extending config
 
 Edit `docker/Dockerfile`, then:
+
 ```bash
 make build
 ```

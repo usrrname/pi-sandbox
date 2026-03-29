@@ -10,15 +10,19 @@ services:
     pids_limit: 100
     network_mode: bridge
     read_only: true
+    env_file: .env.schema
     environment:
-      - PI_HOME=/workspace/.pi
       - HOME=/workspace
+      - PI_HOME=/workspace/.pi
       - MINIMAX_API_KEY=${MINIMAX_API_KEY:-}
       - GH_TOKEN=${GH_TOKEN:-}
     volumes:
+      - ~/.ssh/pi-agent:/workspace/.ssh
+      - ./config/.gitconfig:/workspace/.gitconfig:ro
       - sessions:/workspace/.pi/agent/sessions
-      - memory:/workspace/.pi/memory
-      - /Users/jenc/code/pi-sandbox/projects:/workspace/projects
+      - memory:/workspace/.pi/agent/memory
+      - ~/code/pi-sandbox/projects:/workspace/projects
+      - extensions:/workspace/.pi/agent/extensions
       - type: tmpfs
         target: /tmp
         tmpfs:
@@ -31,3 +35,4 @@ services:
 volumes:
   sessions:
   memory:
+  extensions:

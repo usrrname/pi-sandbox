@@ -27,7 +27,7 @@ clean:
 	docker compose down --rmi local
 
 build:
-	eval "$$(varlock load --format=env)" && export MINIMAX_API_KEY GH_TOKEN && docker compose build --no-cache
+	eval "$$(varlock load --format=env)" && export MINIMAX_API_KEY && docker compose build --no-cache
 
 rebuild:
-	eval "$$(varlock load --format=env)" && export MINIMAX_API_KEY GH_TOKEN && docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash
+	eval "$$(varlock load --format=env)" && export MINIMAX_API_KEY && docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash

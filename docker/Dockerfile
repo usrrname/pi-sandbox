@@ -59,7 +59,7 @@ RUN npm install -g \
   # The AI coding agent
   @mariozechner/pi-coding-agent \
   # Package manager for projects
-  pnpm
+  pnpm bun 
 
 # ---------------------------------------------------------------------------
 # Workspace setup

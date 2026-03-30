@@ -77,14 +77,14 @@ RUN mkdir -p /workspace/.pi/memory /workspace/.pi/agent/sessions /workspace/.pi/
 
 
 # Copy shell configuration
-COPY bashrc /workspace/.bashrc
+COPY docker/bashrc /workspace/.bashrc
 
 # Copy and set up entrypoint
-COPY entrypoint.sh /entrypoint.sh
+COPY docker/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Copy prompt templates (used by /command in pi agent)
-COPY ../prompts/ /workspace/.pi/agent/prompts/
+COPY prompts/ /workspace/.pi/agent/prompts/
 
 # Set ownership and permissions
 RUN chmod -R 755 /workspace/.pi && chown -R agent:agent /workspace

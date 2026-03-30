@@ -1,8 +1,8 @@
 services:
   sandbox:
     build:
-      context: docker
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: docker/Dockerfile
     image: pi-sandbox/base
     container_name: pi-sandbox
     cpus: 2

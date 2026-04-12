@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
 #
 # Pi-Agent Docker Sandbox
 # A hardened container for running the pi-coding-agent
@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 # Base image
 # ---------------------------------------------------------------------------
-FROM ubuntu:24.04
+FROM ubuntu:24.04@sha256:84e77dee7d1bc93fb029a45e3c6cb9d8aa4831ccfcc7103d36e876938d28895b
 
 # Disable interactive prompts during apt
 ENV DEBIAN_FRONTEND=noninteractive

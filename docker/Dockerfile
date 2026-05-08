@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
   # Shells and editors
   curl \
   vim \
-  nano \
   # System monitoring
   tree \
   htop \
@@ -57,7 +56,7 @@ RUN curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-l
 # Install tools used by the pi-coding-agent
 RUN npm install -g \
   # The AI coding agent
-  @mariozechner/pi-coding-agent \
+  @earendil-works/pi-coding-agent \
   # Package manager for projects
   pnpm bun 
 

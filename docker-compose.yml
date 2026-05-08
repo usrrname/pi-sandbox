@@ -14,7 +14,7 @@ services:
     environment:
       - HOME=/workspace
       - PI_HOME=/workspace/.pi
-      - MINIMAX_API_KEY=${MINIMAX_API_KEY:-}
+      - OPENCODE_API_KEY=${OPENCODE_API_KEY}
       - GH_TOKEN=${GH_TOKEN:-}
     volumes:
       - ~/.ssh/pi-agent:/workspace/.ssh

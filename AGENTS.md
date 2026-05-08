@@ -1,4 +1,4 @@
-# Agent Sandbox
+# Pi-agent Sandbox
 
 Docker sandbox for pi-coding-agent with Node.js 22.
 

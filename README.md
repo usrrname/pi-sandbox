@@ -7,7 +7,7 @@ A Docker sandbox for running [pi-coding-agent](https://github.com/badlogic/pi-mo
 ```bash
 # Install varlock for secrets
 npm install -g @dmno/varlock
-pnpm install -g @varlock/1password-plugin
+npm install -g @varlock/1password-plugin
 
 # Configure 1Password (edit .env.schema with your vault path)
 # Run the sandbox
@@ -111,5 +111,3 @@ Edit `docker/Dockerfile`, then:
 ```bash
 make build
 ```
-
-See [AGENTS.md](./AGENTS.md) for full documentation.

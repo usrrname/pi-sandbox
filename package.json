@@ -1,6 +1,11 @@
 {
-	"dependencies": {
-		"@varlock/1password-plugin": "^0.3.0",
-		"varlock": "^0.6.4"
-	}
+  "name": "pi-sandbox",
+  "scripts": {
+    "start": "varlock run -- && make up",
+    "build": "varlock run -- && make build"
+  },
+  "dependencies": {
+    "@varlock/1password-plugin": "^0.3.0",
+    "varlock": "^0.6.4"
+  }
 }

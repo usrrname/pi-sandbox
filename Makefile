@@ -6,9 +6,9 @@ REQUIRED_VARS := OPENCODE_API_KEY MEMORY_LIMIT READ_ONLY
 check-env:
 	@echo "Checking environment..."
 	@# 1. Ensure varlock is installed
-	@command -v varlock >/dev/null 2>&1 || { echo "❌ varlock not found. Install: npm i -g @dmno/varlock"; exit 1; }
+	@command -v pnpm >/dev/null 2>&1 || { echo "❌ pnpm not found. Install: npm i -g pnpm"; exit 1; }
 	@# 2. Load vars and check required ones are set
-	@eval "$$(varlock load --format=shell)" && \
+	@eval "$$(pnpm exec varlock load --format=shell)" && \
 		for var in $(REQUIRED_VARS); do \
 			eval "val=$$$$$var"; \
 			if [ -z "$$$$val" ]; then \
@@ -30,7 +30,7 @@ help:
 	@echo "  make rebuild   - Down + build + up + attach"
 
 up: check-env
-	eval "$$(varlock load --format=shell)" && docker compose up -d
+	eval "$$(pnpm exec varlock load --format=shell)" && docker compose up -d
 
 down:
 	docker compose down
@@ -45,7 +45,7 @@ clean:
 	docker compose down --rmi local
 
 build: check-env
-	eval "$$(varlock load --format=shell)" && docker compose build --no-cache
+	eval "$$(pnpm exec varlock load --format=shell)" && docker compose build --no-cache
 
 rebuild: check-env
-	eval "$$(varlock load --format=shell)" && docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash
+	eval "$$(pnpm exec varlock load --format=shell)" && docker compose down && docker compose build --no-cache && docker compose up -d && docker compose exec sandbox bash

@@ -22,10 +22,12 @@ RUN apt-get update && apt-get install -y \
   # Shells and editors
   curl \
   vim \
+  neovim \
   # System monitoring
   tree \
   htop \
   jq \
+  yq\
   # Archives
   zip \
   unzip \
@@ -69,11 +71,11 @@ WORKDIR /workspace
 RUN useradd -m agent
 
 # Create directories for agent data and session persistence
+# - extensions
 # - sessions/: Chat history (persisted via docker volume)
 # - memory/: Agent memory store (persisted via docker volume)
 # - prompts/: Custom prompt templates (copied from host, at repo root)
 RUN mkdir -p /workspace/.pi/memory /workspace/.pi/agent/sessions /workspace/.pi/agent/prompts /workspace/.pi/agent/extensions
-
 
 # Copy shell configuration
 COPY docker/bashrc /workspace/.bashrc

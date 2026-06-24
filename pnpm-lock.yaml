@@ -9,19 +9,19 @@ importers:
   .:
     dependencies:
       '@varlock/1password-plugin':
-        specifier: 1.1.0
-        version: 1.1.0(varlock@1.5.0)
+        specifier: 1.2.0
+        version: 1.2.0(varlock@1.5.0)
       varlock:
         specifier: ^1.1.0
         version: 1.5.0
 
 packages:
 
-  '@varlock/1password-plugin@1.1.0':
-    resolution: {integrity: sha512-78olHIxWqRy4CAsVHdu4KHkKuqTmuG9w3IrpDZy+9ZjQvKkbA9I5zk9xvnxWTYxCfe0a4CcyiS0yd4WIlWmydA==}
+  '@varlock/1password-plugin@1.2.0':
+    resolution: {integrity: sha512-uRSiVW67/AXbmTfpIyTWF/hot/MVE6+uzt8i6SOyALXHj7bHFeMqJiHjRjbiKGXDD9s7y8WIZkkQRYDCaUCILw==}
     engines: {node: '>=22'}
     peerDependencies:
-      varlock: ^1.1.0
+      varlock: ^1.6.0
 
   varlock@1.5.0:
     resolution: {integrity: sha512-xvCpimTQoCuo19+/uZ84ZWgYyu5NYBUvGGoP27u8VGO5Z4gtrqvgqV6F1S6jZschpTaC6LIEoiz5xCuLygcX9Q==}
@@ -30,7 +30,7 @@ packages:
 
 snapshots:
 
-  '@varlock/1password-plugin@1.1.0(varlock@1.5.0)':
+  '@varlock/1password-plugin@1.2.0(varlock@1.5.0)':
     dependencies:
       varlock: 1.5.0
 

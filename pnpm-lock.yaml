@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@varlock/1password-plugin':
         specifier: 2.0.3
-        version: 2.0.3(varlock@1.7.2)
+        version: 2.0.3(varlock@1.17.1)
       varlock:
         specifier: ^1.1.0
-        version: 1.7.2
+        version: 1.17.1
 
 packages:
 
@@ -23,15 +23,50 @@ packages:
     peerDependencies:
       varlock: ^1.15.0
 
-  varlock@1.7.2:
-    resolution: {integrity: sha512-ZiyKMPW/NStvroygZynKSukVfq1auC3Nq06Eu3qkrMVaEPeSeI64TbWE5QCW0Eo9pWlu/as/Yl+OnhL8f/guRw==}
-    engines: {bun: '>=1.3.3', node: '>=22'}
+  '@varlock/native-helper-darwin@1.17.1':
+    resolution: {integrity: sha512-b1Dzq5VZu9VsSHG05ulYmYBH0zP6Gd8D9tzvkvu1MmGtUBwt/E1teoXAjZvOlLetrwAyXI2Z86Gssu4JxPnt5Q==}
+    os: [darwin]
+
+  '@varlock/native-helper-linux-arm64@1.17.1':
+    resolution: {integrity: sha512-dnrpHCqxJlyvjYMm3u6uC0H4iCmal2qvs6VZBDQc+UdOUfuiHOwkpAoCYlYeB22DNuUqCNqyzQVoqt3BbR+3Yg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@varlock/native-helper-linux-x64@1.17.1':
+    resolution: {integrity: sha512-fRSPD31umpSntaMxGSVInvknh0mCSKWXiYmM5hqnoUHg5NvlgqNifaYKu82PKydeyUu5vf6INXNHC291eBddqA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@varlock/native-helper-win32-x64@1.17.1':
+    resolution: {integrity: sha512-6GzjTd3mVXdAkvDYdtGtnCzbReCD2DcGSDGPV1EE+vCfBdH/oqMokYeG/zfruhSpERYHdX4BLnQ7iGELq5igbA==}
+    os: [win32, linux]
+
+  varlock@1.17.1:
+    resolution: {integrity: sha512-nRxUKuWvvHcCUfLTWu78GYsyR34toOWGG9nhV9ObpVxsZ07mofsAsZrg4zDnWv5sRcujpV8DiQ9I5euDqIQ1WQ==}
+    engines: {bun: '>=1.3.3', node: '>=22.3.0'}
     hasBin: true
 
 snapshots:
 
-  '@varlock/1password-plugin@2.0.3(varlock@1.7.2)':
+  '@varlock/1password-plugin@2.0.3(varlock@1.17.1)':
     dependencies:
-      varlock: 1.7.2
+      varlock: 1.17.1
 
-  varlock@1.7.2: {}
+  '@varlock/native-helper-darwin@1.17.1':
+    optional: true
+
+  '@varlock/native-helper-linux-arm64@1.17.1':
+    optional: true
+
+  '@varlock/native-helper-linux-x64@1.17.1':
+    optional: true
+
+  '@varlock/native-helper-win32-x64@1.17.1':
+    optional: true
+
+  varlock@1.17.1:
+    optionalDependencies:
+      '@varlock/native-helper-darwin': 1.17.1
+      '@varlock/native-helper-linux-arm64': 1.17.1
+      '@varlock/native-helper-linux-x64': 1.17.1
+      '@varlock/native-helper-win32-x64': 1.17.1

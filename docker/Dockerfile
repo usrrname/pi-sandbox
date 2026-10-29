@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 # Base image
 # ---------------------------------------------------------------------------
-FROM ubuntu:26.04@sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d
+FROM ubuntu:26.04@sha256:6a06111c3b0a8600feadb270aec771dc239bf407b25625f93f44ab00e11f4d3c
 
 # Disable interactive prompts during apt
 ENV DEBIAN_FRONTEND=noninteractive
